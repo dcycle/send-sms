@@ -10,6 +10,7 @@ Requirements
 How it works
 -----
 
+```
 export TWILIO_ACCOUNT_SID=SOME_ACCOUNT
 export TWILIO_AUTH_TOKEN=SOME_TOKEN
 export TO_NUMBER="+15555555555"
@@ -18,3 +19,4 @@ export MESSAGE="Hello World"
 
 pip3 install twilio
 python3 ./send_sms.py
+```
