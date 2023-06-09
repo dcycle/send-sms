@@ -8,9 +8,16 @@ import sys
 # pylint: disable=E0401
 from twilio.rest import Client
 
-if "TWILIO_ACCOUNT_SID" not in os.environ or "TWILIO_AUTH_TOKEN" not in os.environ or "TO_NUMBER" not in os.environ or "FROM_NUMBER" not in os.environ or "MESSAGE" not in os.environ:
-    print("[error] TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TO_NUMBER, FROM_NUMBER and MESSAGE environment variables need to exist. Please see README.md.")
-    sys.exit(1)
+for envVar in [
+    "TWILIO_ACCOUNT_SID",
+    "TWILIO_AUTH_TOKEN",
+    "TO_NUMBER",
+    "FROM_NUMBER",
+    "MESSAGE",
+]:
+    if envVar not in os.environ:
+        print("[error] export " + envVar + ". See README.md")
+        sys.exit(1)
 
 # Find your Account SID and Auth Token at twilio.com/console
 # and set the environment variables. See http://twil.io/secure
